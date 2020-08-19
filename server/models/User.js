@@ -37,7 +37,7 @@ const userSchema = mongoose.Schema({
 });
 
 userSchema.pre('save', function (next) {
-  var user = this;
+  let user = this;
   if (user.isModified('password')) {
     // Encrypt password
     bcrypt.genSalt(saltRounds, function (err, salt) {
@@ -62,9 +62,9 @@ userSchema.methods.comparePassword = function (plainPassword, cb) {
 };
 
 userSchema.methods.generateToken = function (cb) {
-  var user = this;
+  let user = this;
   // Generate token with jsonwebtoken
-  var token = jwt.sign(user._id.toHexString(), 'secretToken');
+  let token = jwt.sign(user._id.toHexString(), 'secretToken');
   // user._id + 'secretToken' = token
   // ->
   // 'secretToken' -> user._id 토큰을 넣으면 이 사람이 어떤 user인지 알 수 있음
@@ -77,7 +77,7 @@ userSchema.methods.generateToken = function (cb) {
 };
 
 userSchema.statics.findByToken = function (token, cb) {
-  var user = this;
+  let user = this;
 
   // Decode token
   jwt.verify(token, 'secretToken', function (err, decoded) {
