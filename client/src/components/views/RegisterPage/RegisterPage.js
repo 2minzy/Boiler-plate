@@ -25,7 +25,7 @@ function RegisterPage(props) {
   };
 
   const onSubmitHandler = (event) => {
-    event.preventDefult(); // to avoid page refresh
+    event.preventDefault(); // to avoid page refresh
 
     if (Password !== ConfirmPassword) {
       return alert('unvalied password');
@@ -72,7 +72,7 @@ function RegisterPage(props) {
         />
 
         <br />
-        <button>Sign up</button>
+        <button>SIGN UP</button>
       </form>
     </div>
   );

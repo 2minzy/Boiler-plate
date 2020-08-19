@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { loginUser } from '../../../_actions/user_action';
-import props from 'prop-types';
 import { withRouter } from 'react-router-dom';
 
 function LoginPage(props) {
@@ -18,7 +17,7 @@ function LoginPage(props) {
   };
 
   const onSubmitHandler = (event) => {
-    event.preventDefult(); // to avoid page refresh
+    event.preventDefault(); // to avoid page refresh
 
     let body = {
       email: Email,
@@ -53,7 +52,7 @@ function LoginPage(props) {
         <input type="password" value={Password} onChange={onPasswordHandler} />
 
         <br />
-        <button>Login</button>
+        <button>SIGN IN</button>
       </form>
     </div>
   );
