@@ -18,7 +18,6 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 
 const mongoose = require('mongoose');
-const { urlencoded } = require('body-parser');
 mongoose
   .connect(config.mongoURI, {
     // to avoid error
